@@ -5,7 +5,7 @@ class Login extends CI_Controller {
 	public function index()
 	{
 		$data = array(
-			"titile" => "",
+			"title" => "BOI-Administrator",
 			"mDescription" => "",
 			"mKeywords" => ""
 		);
