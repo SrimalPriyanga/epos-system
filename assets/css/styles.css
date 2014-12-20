@@ -8,7 +8,12 @@
 .padding-remove{
 	padding: 0;
 }
-
+/**
+ * Typography
+ */
+h1{}
+h4, span{font-family: 'Play', sans-serif;}
+a:hover{text-decoration: none;}
 
 body{
 	background-color: #f1f1f1;
@@ -19,10 +24,21 @@ body{
 	margin: 0 auto 20px auto;
 	padding: 0;
 }
-.menubar{
-	background-color: #CD8765;
-	height: 50px;
+.header-banner{
+	height: 70px;
 	width: 100%;
+}
+.menu-items{
+	background-color: #D2A770;
+	padding: 3% 1%;
+	text-align: center;
+}
+.menu-items:hover{
+	background-color: #FFFFFF;
+	border-left: 5px solid #E58304;
+}
+.menu-items > span{
+	//text-align: center;
 }
 .footer{
 	background-color: #E2CEB4;
