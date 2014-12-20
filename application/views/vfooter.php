@@ -1,6 +1,6 @@
         <div class="footer"> <!--Footer bar start-->
             <div class="col-lg-7 col-md-7 col-xs-7">
-                <p>Exam Marks Management System Copyright &COPY; 2014</p>
+                <p>Best of India &COPY; 2014</p>
             </div>
             <div class="col-lg-5 col-md-5 col-xs-5">
                 <ul class="list-inline pull-right">

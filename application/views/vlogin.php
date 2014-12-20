@@ -48,7 +48,7 @@ Created on : Jun 21, 2014, 3:38:29 PM
             <div class="loginBlk">
                 <h4>Best of India<i><small style="color: #cccccc;"> / Admin</small></i></h4>
                 <h1 style="color: #333333; font-family: serif">Let's get started ...</h1>
-                <div class="panel panel-default" style="border-radius:0;">
+                <div class="panel panel-warning" style="border-radius:0;">
                     <div class="panel-heading">
                         <h3 class="panel-title">Sign in</h3>
                     </div>
