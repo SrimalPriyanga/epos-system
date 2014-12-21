@@ -20,22 +20,22 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                 <div class="row" style="margin-right:0">
-                    <a href="#">
+                    <a href="<?php echo base_url();?>transactions">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Transactions</h4>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>receipt">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Receipt</h4>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Reporting</h4>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Log Out</h4>
                         </div>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <!-- Home Header bar End -->
-        <br>
+        
         <!-- Home Content start -->
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -75,6 +75,17 @@
                                     </td>
                                 </tr>
                                 <tr style="border-left:10px solid #FF9900;">
+                                    <td><h1>Reporting</h1>                      <!-- Navigation + Block3 -->
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                    </td>
+                                    <td class="alert-warning">
+                                        <a href="#">
+                                            <span class="glyphicon glyphicon glyphicon-chevron-right btn btn-lg"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr style="border-left:10px solid #C13100;">
                                     <td><h1>Reporting</h1>                      <!-- Navigation + Block3 -->
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam

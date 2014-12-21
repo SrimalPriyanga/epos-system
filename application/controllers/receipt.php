@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Receipt extends CI_Controller {
 
 	public function index()
 	{
@@ -9,9 +9,9 @@ class Home extends CI_Controller {
 			"mDescription" => "",
 			"mKeywords" => ""
 		);
-		$this->load->view('vHeader',$data);
-		$this->load->view('vHome');
-		$this->load->view('vFooter');
+		$this->load->view('vheader',$data);
+		$this->load->view('vReceipt');
+		$this->load->view('vfooter');
 	}
 
 }

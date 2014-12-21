@@ -9,7 +9,7 @@ class Login extends CI_Controller {
 			"mDescription" => "",
 			"mKeywords" => ""
 		);
-		$this->load->view('vlogin', $data);
+		$this->load->view('vLogin', $data);
 	}
 
 }
