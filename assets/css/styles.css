@@ -8,10 +8,11 @@
 .padding-remove{
 	padding: 0;
 }
+
 /**
  * Typography
  */
-h1{}
+h1{font-family: 'Play', sans-serif;}
 h4, span{font-family: 'Play', sans-serif;}
 a:hover{text-decoration: none;}
 
@@ -25,23 +26,34 @@ body{
 	padding: 0;
 }
 .header-banner{
-	height: 70px;
+	height: 75px;
 	width: 100%;
 }
 .menu-items{
-	background-color: #D2A770;
+	background-color: #F38630;
 	padding: 3% 1%;
 	text-align: center;
+	color:#FFFFFF;
 }
 .menu-items:hover{
 	background-color: #FFFFFF;
-	border-left: 5px solid #E58304;
+	border-left: 5px solid #C13100;
+	color:#F38630;
 }
-.menu-items > span{
-	//text-align: center;
+#home-block{
+	padding: 20px;
 }
+#home-table >tbody >tr{
+	border: 2px solid #FBF7E2; border-left:10px solid #FF8000;
+}
+#home-table >tbody >tr >td >a >span{
+	height: 100px; padding-top:70%;
+}
+
+
+
 .footer{
-	background-color: #E2CEB4;
+	background-color: #F38630;
 	height: 50px;
 	bottom: 0;
 	position: absolute;
