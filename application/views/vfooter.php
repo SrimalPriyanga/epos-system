@@ -3,9 +3,9 @@
                 <p>Best of India &COPY; 2014</p>
             </div>
             <div class="col-lg-5 col-md-5 col-xs-5">
-                <ul class="list-inline pull-right">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                <ul id="footer-nav-list" class="list-inline pull-right">
+                    <li><a href="<?php echo base_url();?>home">Home</a></li>
+                    <li><a href="<?php echo base_url();?>">Log Out</a></li>
                 </ul>
             </div>
         </div>

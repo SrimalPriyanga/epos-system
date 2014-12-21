@@ -20,24 +20,24 @@
             </div>
             <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
                 <div class="row" style="margin-right:0">
-                    <a href="#">
+                    <a href="<?php echo base_url();?>transactions">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items menu-items-active">
                             <h4>Transactions</h4>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>receipt">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Receipt</h4>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>reporting">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Reporting</h4>
                         </div>
                     </a>
-                    <a href="#">
+                    <a href="<?php echo base_url();?>products">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
-                            <h4>Log Out</h4>
+                            <h4>Products</h4>
                         </div>
                     </a>
                 </div>

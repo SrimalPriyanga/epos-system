@@ -14,6 +14,7 @@
  */
 h1,h2,h3{font-family: 'Play', sans-serif;}
 h4, span{font-family: 'Play', sans-serif;}
+label{font-family: 'Ubuntu', sans-serif;}
 a:hover{text-decoration: none;}
 
 body{
@@ -63,4 +64,10 @@ body{
 	position: relative;
 	padding: 20px 10px 10px 10px;
 	width: 100%;
+}
+#footer-nav-list >li >a{
+	color: #FFFFFF;
+}
+#footer-nav-list >li >a:hover{
+	color: #000000;
 }

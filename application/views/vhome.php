@@ -30,14 +30,14 @@
                             <h4>Receipt</h4>
                         </div>
                     </a>
-                    <a href="<?php echo base_url();?>">
+                    <a href="<?php echo base_url();?>reporting">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
                             <h4>Reporting</h4>
                         </div>
                     </a>
-                    <a href="<?php echo base_url();?>">
+                    <a href="<?php echo base_url();?>products">
                         <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
-                            <h4>Log Out</h4>
+                            <h4>Products</h4>
                         </div>
                     </a>
                 </div>
@@ -58,7 +58,7 @@
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                                     </td>
                                     <td class="alert-warning">
-                                        <a href="#">
+                                        <a href="<?php echo base_url();?>transactions">
                                             <span class="glyphicon glyphicon glyphicon-chevron-right btn btn-lg"></span>
                                         </a>
                                     </td>
@@ -69,7 +69,7 @@
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                                     </td>
                                     <td class="alert-warning">
-                                        <a href="#">
+                                        <a href="<?php echo base_url();?>receipt">
                                             <span class="glyphicon glyphicon glyphicon-chevron-right btn btn-lg"></span>
                                         </a>
                                     </td>
@@ -80,18 +80,18 @@
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                                     </td>
                                     <td class="alert-warning">
-                                        <a href="#">
+                                        <a href="<?php echo base_url();?>reporting">
                                             <span class="glyphicon glyphicon glyphicon-chevron-right btn btn-lg"></span>
                                         </a>
                                     </td>
                                 </tr>
                                 <tr style="border-left:10px solid #C13100;">
-                                    <td><h1>Reporting</h1>                      <!-- Navigation + Block3 -->
+                                    <td><h1>Products</h1>                      <!-- Navigation + Block3 -->
                                         Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                                         tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
                                     </td>
                                     <td class="alert-warning">
-                                        <a href="#">
+                                        <a href="<?php echo base_url();?>products">
                                             <span class="glyphicon glyphicon glyphicon-chevron-right btn btn-lg"></span>
                                         </a>
                                     </td>
