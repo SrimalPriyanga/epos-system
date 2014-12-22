@@ -10,9 +10,6 @@
             </div>
         </div>
 
-    <?php include 'includes/footer_mapping.php'; ?>
-    <script>
-        document.body.style.backgroundPosition = "0% 100%";
-    </script>
+    <?php include 'includes/footer_mapping.php';?>
     </body>
 </html>

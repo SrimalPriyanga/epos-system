@@ -107,9 +107,14 @@
                             </form>
                         </div>
                     </div>
+                    <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="page-header">
+                          <h1>Graph<small>..</small></h1>
+                        </div>
+                    </div>
+                        <!-- <div id="chart_div" style="width: 900px; height: 500px;"></div> -->
                 </div>
-                <div class="row">
-                    <div id="chart_div" style="width: 900px; height: 500px;"></div>
                 </div>
             </div>  <!-- Home-block end -->
         </div>

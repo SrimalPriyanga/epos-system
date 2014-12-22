@@ -9,9 +9,9 @@ class Products extends CI_Controller {
 			"mDescription" => "",
 			"mKeywords" => ""
 		);
-		$this->load->view('vheader',$data);
+		$this->load->view('vHeader',$data);
 		$this->load->view('vProducts');
-		$this->load->view('vfooter');
+		$this->load->view('vFooter');
 	}
 
 }

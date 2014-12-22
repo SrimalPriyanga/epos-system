@@ -64,25 +64,33 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Date</label>
+                                    <label for="" class="col-sm-2 control-label">Name of customer</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Date</label>
+                                    <label for="" class="col-sm-2 control-label">Address</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Date</label>
+                                    <label for="" class="col-sm-2 control-label">Product</label>
+                                    <div class="col-sm-10">
+                                        <select name="" id="input" class="form-control" required="required">
+                                            <option value=""></option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="" class="col-sm-2 control-label">Discount</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Date</label>
+                                    <label for="" class="col-sm-2 control-label">Tax</label>
                                     <div class="col-sm-10">
                                         <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
                                     </div>

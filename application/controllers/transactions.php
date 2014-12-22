@@ -9,9 +9,9 @@ class Transactions extends CI_Controller {
 			"mDescription" => "",
 			"mKeywords" => ""
 		);
-		$this->load->view('vheader',$data);
+		$this->load->view('vHeader',$data);
 		$this->load->view('vTransactions');
-		$this->load->view('vfooter');
+		$this->load->view('vFooter');
 	}
 
 }
