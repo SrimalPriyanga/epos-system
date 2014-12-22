@@ -14,30 +14,40 @@
 <body>
     <div class="container">
         <!-- Home Header bar start -->
-        <div class="row">
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-left"  style="padding-right:0">
-                <img src="http://dummyimage.com/700x75/000/ababab.jpg" class="img-responsive header-banner" alt="Image">
+    <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left"  style="padding-right:0">
+                <img src="assets/img/best_of_india.png" class="img-responsive header-logo" alt="Image">
             </div>
-            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right">
+            <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 pull-right">
                 <div class="row" style="margin-right:0">
+                    <a href="<?php echo base_url();?>home">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
+                            <h4>Home</h4>
+                        </div>
+                    </a>
                     <a href="<?php echo base_url();?>transactions">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
                             <h4>Transactions</h4>
                         </div>
                     </a>
                     <a href="<?php echo base_url();?>receipt">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
                             <h4>Receipt</h4>
                         </div>
                     </a>
                     <a href="<?php echo base_url();?>reporting">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
                             <h4>Reporting</h4>
                         </div>
                     </a>
                     <a href="<?php echo base_url();?>products">
-                        <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 menu-items menu-items-active">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items menu-items-active">
                             <h4>Products</h4>
+                        </div>
+                    </a>
+                    <a href="<?php echo base_url();?>">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
+                            <h4>Log Out</h4>
                         </div>
                     </a>
                 </div>

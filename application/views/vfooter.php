@@ -4,8 +4,8 @@
             </div>
             <div class="col-lg-5 col-md-5 col-xs-5">
                 <ul id="footer-nav-list" class="list-inline pull-right">
-                    <li><a href="<?php echo base_url();?>home">Home</a></li>
-                    <li><a href="<?php echo base_url();?>">Log Out</a></li>
+                    <li><a href="http://www.bestofindia.fr" target="_blank">Bestofindia.fr</a></li>
+                    <li><a href="#" target="">Instructions</a></li>
                 </ul>
             </div>
         </div>
