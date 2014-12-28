@@ -14,9 +14,9 @@
 <body>
     <div class="container">
         <!-- Home Header bar start -->
-    <div class="row">
+        <div class="row">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left"  style="padding-right:0">
-                <img src="assets/img/best_of_india.png" class="img-responsive header-logo" alt="Image">
+                <img src="<?php echo base_url();?>assets/img/best_of_india.png" class="img-responsive header-logo" alt="Image">
             </div>
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 pull-right">
                 <div class="row" style="margin-right:0">
@@ -52,8 +52,7 @@
                     </a>
                 </div>
             </div>
-        </div>
-        <!-- Home Header bar End -->
+        </div> <!-- Home Header bar End -->
         
         <!-- Home Content start -->
         <div class="row">
@@ -62,26 +61,26 @@
                     <div class="page-header" style="margin:10px">
                         <h1 class="text-warning" style="margin:0">Products Managment</h1>
                     </div>
-                    <div class="panel panel-default">
+                    <div class="panel panel-default"> <!-- Product ADD Start-->
                         <div class="panel-heading"><h4 style="margin:0;">Add Products</h4></div>
                         <div class="panel-body">
-                            <form action="" method="POST" class="form-horizontal" role="form">
+                            <form action="<?php echo base_url();?>products/insert" method="POST" class="form-horizontal" role="form">
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Item Name</label>
+                                    <label for="" class="col-sm-2 control-label">Product Name</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="name" id="name" class="form-control" value="" required="required" placeholder="Enter product name here" title="Product Name">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Description</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <textarea type="text" name="description" id="description" class="form-control" value="" required="required" placeholder="Enter product description here" title="Product Description"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Price</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="price" id="price" class="form-control" value="" required="required" placeholder="Enter product price here (ex: 100.99)" title="Price">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -91,108 +90,111 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="panel-footer">
+                    </div> <!-- Product ADD END-->
+
+                    <div class="row"> <!-- Start products edit & Delete -->
+                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                            <div class="panel panel-success">
+                                <div class="panel-heading"><h4 style="margin:0;">Edit Products</h4></div>
+                                <div class="panel-body">
+                                    <form action="<?php echo base_url();?>products/update" method="POST" class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Select product</label>
+                                            <div class="col-sm-9">
+                                                <select name="selected_product" id="selected_product" class="form-control" required="required">
+                                                <option selected="selected">Select a product ...</option>
+                                                <?php foreach ($content as $row) { ?>
+                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $row['product_id'];?> <?php echo $row['name'];?></option>
+                                                <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Enter New Name</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="new_name" id="new_name" class="form-control" value="" required="required" title="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Description</label>
+                                            <div class="col-sm-9">
+                                                <textarea type="text" name="new_description" id="new_description" class="form-control" value="" required="required" placeholder="Enter product description here" title="Product Description"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-3 control-label">Price</label>
+                                            <div class="col-sm-9">
+                                                <input type="text" name="new_price" id="new_price" class="form-control" value="" required="required" pattern="[0-9]{4}" title="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-9 col-sm-offset-3">
+                                                <button type="submit" class="btn btn-success">Update</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>  
+                        </div> <!-- Product edit panel End -->
+
+                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"> <!-- Product delete panel Start -->
+                            <div class="panel panel-danger">
+                                <div class="panel-heading"><h4 style="margin:0;">Delete Products</h4></div>
+                                <div class="panel-body">
+                                    <form action="" method="POST" class="form-horizontal" role="form">
+                                        <div class="form-group">
+                                            <label for="" class="col-sm-4 control-label">Select product id to delete</label>
+                                            <div class="col-sm-8">
+                                                <select name="selected_item" id="selected_item" class="form-control" required="required">
+                                                 <option selected="selected">Select a product ...</option>
+                                                <?php foreach ($content as $row) { ?>
+                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $row['product_id'];?> <?php echo $row['name'];?></option>
+                                                <?php }?>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-8 col-sm-offset-4">
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div> <!-- Product delete panel End -->
+                    </div> <!-- Products edit & Delete Row end-->
+
+                    <div class="panel panel-primary"> <!-- Product list start-->
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Product Details</h3>
+                        </div>
+                        <div class="panel-body"  style="padding:0">
                             <div class="table-responsive">
                                 <table class="table table-bordered table-striped" style="margin-bottom:0px">
                                     <thead>
                                         <tr class="alert-info">
-                                            <th>Item Id</th>
-                                            <th>Item Name</th>
+                                            <th>ID</th>
+                                            <th>Name</th>
                                             <th>Description</th>
                                             <th>Price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php foreach ($content as $row) { ?>
                                         <tr>
-                                            <td>1</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
+                                            <td><?php echo $row['product_id'];?></td>
+                                            <td><?php echo $row['name'];?></td>
+                                            <td><?php echo $row['description'];?></td>
+                                            <td><?php echo $row['price'];?></td>
                                         </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                        </tr>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                            <td>table data</td>
-                                        </tr>
+                                        <?php }?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
-                    </div>
-                    <div class="panel panel-primary">
-                        <div class="panel-heading"><h4 style="margin:0;">Edit Products</h4></div>
-                        <div class="panel-body">
-                            <form action="" method="POST" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Select Item ID</label>
-                                    <div class="col-sm-10">
-                                        <select name="" id="input" class="form-control" required="required">
-                                            <option value=""></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Enter New Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Description</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Price</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="col-sm-10 col-sm-offset-2">
-                                      <button type="submit" class="btn btn-primary">Update</button>
-                                  </div>
-                                </div>
-                            </form>
-                        </div>
-                        
-                    </div>  <!-- Previous recordes History End -->
+                    </div> <!-- Product list END-->
 
-                    <div class="panel panel-danger">
-                        <div class="panel-heading"><h4 style="margin:0;">Delete Products</h4></div>
-                        <div class="panel-body">
-                            <form action="" method="POST" class="form-horizontal" role="form">
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Select item id to delete</label>
-                                    <div class="col-sm-10">
-                                        <select name="" id="input" class="form-control" required="required">
-                                            <option value=""></option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                  <div class="col-sm-10 col-sm-offset-2">
-                                      <button type="submit" class="btn btn-danger">Delete</button>
-                                  </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>  <!-- Home-block end -->
-        </div>
-    </div>  <!-- Home Content end -->
+                </div>  <!-- Home-block end -->
+            </div>
+        </div> <!-- Home Content end -->
+    </div>  <!-- Container end -->
