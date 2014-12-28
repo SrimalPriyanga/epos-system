@@ -4,6 +4,7 @@ class Receipt extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->model->m_reciept();
 		$data = array(
 			"title" => "BOI -Admin home",
 			"mDescription" => "",

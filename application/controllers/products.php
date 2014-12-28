@@ -39,12 +39,21 @@ class Products extends CI_Controller {
 		$product_details['new_description'] = $this->input->post('new_description');
 		$product_details['new_price'] = $this->input->post('new_price');
 		
-		// $status = $this->boi_model->insert_product($product_details);
-		// if ($status == TRUe) {
-		// 	redirect('/Products');
-		// }else
-		// redirect('');
-		var_dump($product_details);
+		$status = $this->boi_model->update_product($product_details);
+		if ($status == true) {
+			redirect('/Products');
+		}else
+		redirect('');
+	}
+
+	public function delete(){
+		$product_details['selected_product'] = $this->input->post('selected_product');
+		
+		$status = $this->boi_model->delete_product($product_details);
+		if ($status == true) {
+			redirect('/Products');
+		}else
+		redirect('');
 	}
 
 }

@@ -103,28 +103,29 @@
                                             <div class="col-sm-9">
                                                 <select name="selected_product" id="selected_product" class="form-control" required="required">
                                                 <option selected="selected">Select a product ...</option>
+                                                <?php $count=1?>
                                                 <?php foreach ($content as $row) { ?>
-                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $row['product_id'];?> <?php echo $row['name'];?></option>
-                                                <?php }?>
+                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
+                                                <?php $count++; }?>
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="" class="col-sm-3 control-label">Enter New Name</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="new_name" id="new_name" class="form-control" value="" required="required" title="">
+                                                <input type="text" name="new_name" id="new_name" class="form-control" placeholder="Enter new name here" required="required" title="">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="" class="col-sm-3 control-label">Description</label>
                                             <div class="col-sm-9">
-                                                <textarea type="text" name="new_description" id="new_description" class="form-control" value="" required="required" placeholder="Enter product description here" title="Product Description"></textarea>
+                                                <textarea type="text" name="new_description" id="new_description" class="form-control" placeholder="Enter the description" required="required" placeholder="Enter product description here" title="Product Description"></textarea>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="" class="col-sm-3 control-label">Price</label>
                                             <div class="col-sm-9">
-                                                <input type="text" name="new_price" id="new_price" class="form-control" value="" required="required" pattern="[0-9]{4}" title="">
+                                                <input type="text" name="new_price" id="new_price" class="form-control" placeholder="Enter the price (ex: 10.54)" required="required" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -141,15 +142,16 @@
                             <div class="panel panel-danger">
                                 <div class="panel-heading"><h4 style="margin:0;">Delete Products</h4></div>
                                 <div class="panel-body">
-                                    <form action="" method="POST" class="form-horizontal" role="form">
+                                    <form action="<?php echo base_url();?>products/delete" method="POST" class="form-horizontal" role="form">
                                         <div class="form-group">
-                                            <label for="" class="col-sm-4 control-label">Select product id to delete</label>
+                                            <label for="" class="col-sm-4 control-label">Select a product to delete</label>
                                             <div class="col-sm-8">
-                                                <select name="selected_item" id="selected_item" class="form-control" required="required">
-                                                 <option selected="selected">Select a product ...</option>
+                                                <select name="selected_product" id="selected_product" class="form-control" required="required">
+                                                    <option selected="selected">Select a product ...</option>
+                                                <?php $count=1?>
                                                 <?php foreach ($content as $row) { ?>
-                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $row['product_id'];?> <?php echo $row['name'];?></option>
-                                                <?php }?>
+                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
+                                                <?php $count++; }?>
                                                 </select>
                                             </div>
                                         </div>
@@ -170,24 +172,25 @@
                         </div>
                         <div class="panel-body"  style="padding:0">
                             <div class="table-responsive">
-                                <table class="table table-bordered table-striped" style="margin-bottom:0px">
+                                <table class="table table-bordered table-hover" style="margin-bottom:0px">
                                     <thead>
                                         <tr class="alert-info">
-                                            <th>ID</th>
+                                            <th>#</th>
                                             <th>Name</th>
                                             <th>Description</th>
                                             <th>Price</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php $count=1?>
                                         <?php foreach ($content as $row) { ?>
                                         <tr>
-                                            <td><?php echo $row['product_id'];?></td>
+                                            <td><?php echo $count;?></td>
                                             <td><?php echo $row['name'];?></td>
                                             <td><?php echo $row['description'];?></td>
                                             <td><?php echo $row['price'];?></td>
                                         </tr>
-                                        <?php }?>
+                                        <?php $count++; }?>
                                     </tbody>
                                 </table>
                             </div>
