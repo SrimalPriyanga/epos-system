@@ -60,29 +60,29 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <div id="home-block">
                     <div class="page-header" style="margin:10px">
-                        <h1 class="text-warning" style="margin:0">Genarate Receipt</h1>
+                        <h1 class="text-warning" style="margin:0">Generate Receipt</h1>
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4 style="margin:0;">Enter the details bellow</h4></div>
                         <div class="panel-body">
-                            <form action="" method="POST" class="form-horizontal" role="form">
+                            <form action="<?php echo base_url();?>receipt/generate" method="POST" class="form-horizontal" role="form">
                           
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Date</label>
                                     <div class="col-sm-10">
-                                        <input type="date" name="" id="input" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
+                                        <input type="date" name="date" id="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Name of customer</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="customer_name" id="customer_name" class="form-control" value="" required="required" placeholder="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Address</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="address" id="address" class="form-control" value="" required="required" placeholder="" title="">
                                     </div>
                                 </div>
                                 <?php
@@ -90,30 +90,34 @@
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Select Product <?php echo $i?></label>
                                     <div class="col-sm-8">
-                                        <select name="" id="input" class="form-control" required="required">
-                                            <option value=""></option>
+                                        <select name="product_<?php echo $i?>_id" id="product_<?php echo $i?>_id" class="form-control">
+                                            <option selected="selected">Select a product ...</option>
+                                            <?php $count=1?>
+                                            <?php foreach ($content as $row) { ?>
+                                            <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
+                                            <?php $count++; }?>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="" placeholder="Enter quentity here">
+                                        <input type="text" name="product_<?php echo $i?>_que" id="product_<?php echo $i?>_que" class="form-control" value="" title="" placeholder="Enter quentity here">
                                     </div>
                                 </div>
                                 <?php } ?>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Discount</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="discount" id="discount" class="form-control" value="" required="required" placeholder="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Tax</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="tax" id="tax" class="form-control" value="" required="required" placeholder="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                   <div class="col-sm-10 col-sm-offset-2">
-                                      <button type="submit" class="btn btn-warning">Genarate</button>
+                                      <button type="submit" class="btn btn-warning">Generate</button>
                                   </div>
                                 </div>
                             </form>

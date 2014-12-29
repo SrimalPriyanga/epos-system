@@ -110,35 +110,106 @@
                     <div class="page-header">
                         <h2 style="margin:0">Today Orders<small> find information bellow</small></h2>
                     </div>
-                    <div class="well well-sm">
-                        <div class="media">
-                            <a class="media-left media-middle" href="#">
-                                <button type="button" class="btn btn-large btn-block btn-default">01</button>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Order bollywood -Details</h4>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+                    <div class="row">
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="well well-sm">
+                                <div class="media">
+                                    <!-- <a class="media-left media-middle" href="">
+                                        <button type="button" class="btn btn-large btn-block btn-default">01</button>
+                                    </a> -->
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                <h4 class="media-heading">Customer: <span class="text-primary">Srimal Priyanaga sfsfs</span><br />
+                                                 <small class="text-info">No:54, Maharagama, Sri lnaka</small></h4>
+                                            </div>
+                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                <h5 class="font-ubuntu">Discount: <span class="text-danger">10%</span><br />Tax: <span class="text-danger">0.45</span></h5>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Product</th>
+                                                        <th>Quantity</th>
+                                                        <th>Quantity</th>
+                                                        <th>Quantity</th>
+                                                        <th>Quantity</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Majno Masala</td>
+                                                        <td>10</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Majno Masala</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Majno Masala</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="well well-sm">
-                        <div class="media">
-                            <a class="media-left media-middle" href="#">
-                                <button type="button" class="btn btn-large btn-block btn-default">02</button>
-                            </a>
-                            <div class="media-body">
-                                <h4 class="media-heading">Order bollywood -Details</h4>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                            <div class="well well-sm">
+                                <div class="media">
+                                    <a class="media-left media-middle" href="">
+                                        <button type="button" class="btn btn-large btn-block btn-default">01</button>
+                                    </a>
+                                    <div class="media-body">
+                                        <div class="row">
+                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                                <h4 class="media-heading">Customer: <span class="text-primary">Srimal Priyanaga</span><br />
+                                                 <small class="text-info">No:54, Maharagama, Sri lnaka</small></h4>
+                                            </div>
+                                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-1">
+                                                <h5 class="font-ubuntu">Discount: <span class="text-danger">10%</span>  Tax: <span class="text-danger">0.45</span></h5>
+                                            </div>
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table class="table table-hover">
+                                                <thead>
+                                                    <tr>
+                                                        <th>#</th>
+                                                        <th>Product</th>
+                                                        <th>Quantity</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Majno Masala</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Majno Masala</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>1</td>
+                                                        <td>Majno Masala</td>
+                                                        <td>10</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
