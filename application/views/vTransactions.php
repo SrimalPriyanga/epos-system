@@ -65,36 +65,37 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4 style="margin:0;">Add new transaction</h4></div>
                         <div class="panel-body">
-                            <form action="" method="POST" class="form-horizontal" role="form">
-                          
+                            <form action="<?php echo base_url();?>transactions/insert" method="POST" class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Date</label>
                                     <div class="col-sm-10">
-                                        <input type="date" name="" id="input" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
+                                        <input type="date" name="date" id="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">CB</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                    <div class="col-sm-4">
+                                        <input type="text" name="cb" id="cb" class="form-control" value="" required="required" placeholder="Enter" title="">
                                     </div>
-                                </div>
-                                <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Cheque</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                    <div class="col-sm-4">
+                                        <input type="text" name="cheque" id="cheque" class="form-control" value="" required="required" placeholder="Enter" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">TR</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                    <div class="col-sm-4">
+                                        <input type="text" name="tr" id="tr" class="form-control" value="" required="required" placeholder="Enter" title="">
+                                    </div>
+                                    <label for="" class="col-sm-2 control-label">ESPECES</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="especes" id="especes" class="form-control" value="" required="required" placeholder="Enter" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">ESPECES</label>
+                                    <label for="" class="col-sm-2 control-label">Defences</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="" id="input" class="form-control" value="" required="required" pattern="" title="">
+                                        <input type="text" name="defences" id="defences" class="form-control" value="" required="required" placeholder="Enter" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -110,109 +111,60 @@
                     <div class="page-header">
                         <h2 style="margin:0">Today Orders<small> find information bellow</small></h2>
                     </div>
-                    
+
+                    <?php $count =0; $index =0;
+                    for ($i=1; $i <=$num_of_orders; $i+=2) { ?>
                     <div class="row">
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="well well-sm">
-                                <div class="media">
-                                    <!-- <a class="media-left media-middle" href="">
-                                        <button type="button" class="btn btn-large btn-block btn-default">01</button>
-                                    </a> -->
-                                    <div class="media-body">
-                                        <div class="row">
-                                            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                                                <h4 class="media-heading">Customer: <span class="text-primary">Srimal Priyanaga sfsfs</span><br />
-                                                 <small class="text-info">No:54, Maharagama, Sri lnaka</small></h4>
+                        <?php for ($j=0; $j<2; $j++) {
+                                if ($count<$num_of_orders) { ?>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        <div class="well well-sm">
+                                            <div class="media">
+                                                <!-- <a class="media-left media-middle" href="">
+                                                    <button type="button" class="btn btn-large btn-block btn-default">01</button>
+                                                </a> -->
+                                                <div class="media-body">
+                                                    <div class="row">
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                            <h4 class="media-heading">Customer: <span class="text-primary"><?php echo $content[$index]['customer_name']?></span><br />
+                                                             <small class="text-info"><?php echo $content[$index]['address']?></small></h4>
+                                                        </div>
+                                                        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                            <h5 class="font-ubuntu">Discount: <span class="text-danger"><?php echo $content[$index]['discount']?>%</span><br />Tax: <span class="text-danger"><?php echo $content[$index]['tax']?></span></h5>
+                                                        </div>
+                                                    </div>
+                                                    <div class="table-responsive">
+                                                        <table class="table table-hover">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>#</th>
+                                                                    <th>Product</th>
+                                                                    <th>Quantity</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <?php $id =1;
+                                                            do{ ?>
+                                                                <tr>
+                                                                    <td><?php echo $id;?></td>
+                                                                    <td><?php echo $content[$index]['name']?></td>
+                                                                    <td><?php echo $content[$index]['quantity']?></td>
+                                                                </tr>
+                                                            <?php $index++; $id++;
+                                                            if ($index >= $number_of_records) { break; }
+                                                            }while($content[$index-1]['receipt_id'] == $content[$index]['receipt_id'])?>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                <h5 class="font-ubuntu">Discount: <span class="text-danger">10%</span><br />Tax: <span class="text-danger">0.45</span></h5>
-                                            </div>
-                                        </div>
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Product</th>
-                                                        <th>Quantity</th>
-                                                        <th>Quantity</th>
-                                                        <th>Quantity</th>
-                                                        <th>Quantity</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Majno Masala</td>
-                                                        <td>10</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Majno Masala</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Majno Masala</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                            <div class="well well-sm">
-                                <div class="media">
-                                    <a class="media-left media-middle" href="">
-                                        <button type="button" class="btn btn-large btn-block btn-default">01</button>
-                                    </a>
-                                    <div class="media-body">
-                                        <div class="row">
-                                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                                                <h4 class="media-heading">Customer: <span class="text-primary">Srimal Priyanaga</span><br />
-                                                 <small class="text-info">No:54, Maharagama, Sri lnaka</small></h4>
-                                            </div>
-                                            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 col-xs-offset-1">
-                                                <h5 class="font-ubuntu">Discount: <span class="text-danger">10%</span>  Tax: <span class="text-danger">0.45</span></h5>
-                                            </div>
-                                        </div>
-                                        <div class="table-responsive">
-                                            <table class="table table-hover">
-                                                <thead>
-                                                    <tr>
-                                                        <th>#</th>
-                                                        <th>Product</th>
-                                                        <th>Quantity</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Majno Masala</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Majno Masala</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>1</td>
-                                                        <td>Majno Masala</td>
-                                                        <td>10</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php   }
+                                $count++;
+                              }?>
                     </div>
+                    <?php }?>
                     <!-- Todays orders End -->
 
                     <!-- Previous recordes History start -->
@@ -223,6 +175,7 @@
                         <table class="table table-hover table-bordered">
                             <thead>
                                 <tr class="alert-success">
+                                    <th>Date</th>
                                     <th>CB</th>
                                     <th>CHEQUE</th>
                                     <th>TR</th>
@@ -236,53 +189,36 @@
                                 </tr>
                             </thead>
                             <tbody>
+                            <?php $total = array("cb"=>0, "cheque"=>0, "tr"=>0, "especes"=>0, "total"=>0, "defences"=>0, "bank"=>0, "safe"=>0, "balance"=>0, "inhand"=>0);
+                            foreach ($data_of_transactions as $value) {?>
                                 <tr>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
+                                    <td><?php echo $value['date'];?>
+                                        <a class="pull-right text-danger" href="<?php echo base_url("transactions/delete/?id="); echo $value['transaction_id'];?>" title="Click to delete this record"><span class="glyphicon glyphicon-remove"></span></a>
+                                    </td>
+                                    <td><?php echo $value['cb']; $total['cb'] += $value['cb'];?> &euro;</td>
+                                    <td><?php echo $value['cheque']; $total['cheque'] += $value['cheque'];?> &euro;</td>
+                                    <td><?php echo $value['tr']; $total['tr'] += $value['tr'];?> &euro;</td>
+                                    <td><?php echo $value['especes']; $total['especes'] += $value['especes'];?> &euro;</td>
+                                    <td><?php echo $value['total']; $total['total'] += $value['total'];?> &euro;</td>
+                                    <td><?php echo $value['defences']; $total['defences'] += $value['defences'];?> &euro;</td>
+                                    <td><?php echo $value['bank']; $total['bank'] += $value['bank'];?> &euro;</td>
+                                    <td><?php echo $value['safe']; $total['safe'] += $value['safe'];?> &euro;</td>
+                                    <td><?php echo $value['balance']; $total['balance'] += $value['balance'];?> &euro;</td>
+                                    <td><?php echo $value['inhand']; $total['inhand'] += $value['inhand'];?> &euro;</td>
                                 </tr>
-                                <tr>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                </tr>
-                                <tr>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                </tr>
-                                <tr>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
-                                    <td>table data</td>
+                            <?php }?>
+                                <tr class="bg-danger">
+                                    <td>Sub Total</td>
+                                    <td><?php echo $total['cb']?> &euro;</td>
+                                    <td><?php echo $total['cheque']?> &euro;</td>
+                                    <td><?php echo $total['tr']?> &euro;</td>
+                                    <td><?php echo $total['especes']?> &euro;</td>
+                                    <td><?php echo $total['total']?> &euro;</td>
+                                    <td><?php echo $total['defences']?> &euro;</td>
+                                    <td><?php echo $total['bank']?> &euro;</td>
+                                    <td><?php echo $total['safe']?> &euro;</td>
+                                    <td><?php echo $total['balance']?> &euro;</td>
+                                    <td><?php echo $total['inhand']?> &euro;</td>
                                 </tr>
                             </tbody>
                         </table>

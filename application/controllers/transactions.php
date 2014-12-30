@@ -10,7 +10,8 @@ class Transactions extends CI_Controller {
 			"mKeywords" => ""
 		);
 		$order_details = $this->get_order_details();
-		var_dump($order_details);
+		$order_details['data_of_transactions'] = $this->get_transaction_history();
+		//var_dump($order_details['data_of_transactions']);
 		$this->load->view('vHeader',$data);
 		$this->load->view('vTransactions', $order_details);
 		$this->load->view('vFooter');
@@ -19,8 +20,9 @@ class Transactions extends CI_Controller {
 	public function get_order_details(){
 		$this->load->model('m_transactions');
 		$order_details['content'] = $this->m_transactions->retrieve_order_details();
-		
-		if (null != $order_details['content']) {	// Check whether orders are available or not by date
+		$order_details['number_of_records'] = count($order_details['content']);
+
+		if ($order_details['content'] != null) {	// Check whether orders are available or not by date
 			$order_details['num_of_orders'] = 1;	// To store number of receipt for day
 			$temp_receipt_id = $order_details['content'][0]['receipt_id'];
 			
@@ -32,6 +34,44 @@ class Transactions extends CI_Controller {
 			}
 			return $order_details;
 		}else return FALSE;
+	}
+
+	public function get_transaction_history(){
+		$this->load->model('m_transactions');
+		$transaction_history = $this->m_transactions->retrieve_transaction_details();
+		if ($transaction_history != null) {
+			return $transaction_history;
+		}else return FALSR;
+	}
+
+	public function insert(){
+		$this->load->model('m_transactions');
+		$transaction['date'] = $this->input->post('date');
+		$transaction['cb'] = $this->input->post('cb');
+		$transaction['cheque'] = $this->input->post('cheque');
+		$transaction['tr'] = $this->input->post('tr');
+		$transaction['especes'] = $this->input->post('especes');
+		$transaction['defences'] = $this->input->post('defences');
+		$transaction['total'] = $transaction['cb'] + $transaction['cheque'] + $transaction['tr'] + $transaction['especes'];
+		$transaction['balance'] = $transaction['especes'] - $transaction['defences'];
+		$transaction['bank'] = ($transaction['balance'] /100) *25;
+		$transaction['safe'] = ($transaction['balance'] /100) *75;
+		$transaction['inhand'] = $transaction['balance'] - ($transaction['bank'] + $transaction['safe']);
+
+		$status = $this->m_transactions->insert($transaction);
+		if ($status == TRUE) {
+			redirect('/transactions');
+		}else redirect('');
+	}
+
+	public function delete(){
+		$selected_id = $this->input->get(NULL, TRUE);
+		if ($selected_id != FALSE) {
+			$query = $this->db->query('
+				DELETE FROM daily_transactions WHERE transaction_id = '.$selected_id['id'].'
+			');
+			redirect('/transactions');
+		}else redirect('');
 	}
 
 }

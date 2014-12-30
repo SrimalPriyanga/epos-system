@@ -188,7 +188,7 @@
                                             <td><?php echo $count;?></td>
                                             <td><?php echo $row['name'];?></td>
                                             <td><?php echo $row['description'];?></td>
-                                            <td><?php echo $row['price'];?></td>
+                                            <td><?php echo $row['price'];?> &euro;</td>
                                         </tr>
                                         <?php $count++; }?>
                                     </tbody>

@@ -16,6 +16,8 @@ h1,h2,h3{font-family: 'Play', sans-serif;}
 h4, span{font-family: 'Play', sans-serif;}
 h5, h6{font-family: 'Ubuntu', sans-serif;}
 label{font-family: 'Ubuntu', sans-serif;}
+th{font-family: 'Roboto', sans-serif;}
+td{font-family: 'Ubuntu', sans-serif;}
 a:hover{text-decoration: none;}
 
 body{
