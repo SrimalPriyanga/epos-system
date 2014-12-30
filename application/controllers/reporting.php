@@ -2,8 +2,7 @@
 
 class Reporting extends CI_Controller {
 
-	public function index()
-	{
+	public function index(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$data = array(
 			"title" => "BOI -Admin home",
 			"mDescription" => "",

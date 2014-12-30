@@ -2,8 +2,7 @@
 
 class Transactions extends CI_Controller {
 
-	public function index()
-	{
+	public function index(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$data = array(
 			"title" => "BOI -Admin home",
 			"mDescription" => "",
@@ -17,7 +16,7 @@ class Transactions extends CI_Controller {
 		$this->load->view('vFooter');
 	}
 
-	public function get_order_details(){
+	public function get_order_details(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$this->load->model('m_transactions');
 		$order_details['content'] = $this->m_transactions->retrieve_order_details();
 		$order_details['number_of_records'] = count($order_details['content']);
@@ -36,7 +35,7 @@ class Transactions extends CI_Controller {
 		}else return FALSE;
 	}
 
-	public function get_transaction_history(){
+	public function get_transaction_history(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$this->load->model('m_transactions');
 		$transaction_history = $this->m_transactions->retrieve_transaction_details();
 		if ($transaction_history != null) {
@@ -44,7 +43,7 @@ class Transactions extends CI_Controller {
 		}else return FALSR;
 	}
 
-	public function insert(){
+	public function insert(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$this->load->model('m_transactions');
 		$transaction['date'] = $this->input->post('date');
 		$transaction['cb'] = $this->input->post('cb');
@@ -64,7 +63,7 @@ class Transactions extends CI_Controller {
 		}else redirect('');
 	}
 
-	public function delete(){
+	public function delete(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$selected_id = $this->input->get(NULL, TRUE);
 		if ($selected_id != FALSE) {
 			$query = $this->db->query('

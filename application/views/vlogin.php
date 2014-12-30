@@ -53,7 +53,7 @@ Created on : Jun 21, 2014, 3:38:29 PM
                         <h3 class="panel-title">Sign in</h3>
                     </div>
                     <div class="panel-body">
-                        <form class="form" role="form" action="<?php echo base_url();?>home" method="POST">
+                        <form class="form" role="form" action="<?php echo base_url("login/login_check");?>" method="POST">
                             <fieldset>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="username" name="username" type="text" required="required">

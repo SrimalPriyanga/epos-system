@@ -2,8 +2,7 @@
 
 class Products extends CI_Controller {
 
-	public function index()
-	{
+	public function index(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$data = array(
 			"title" => "BOI -Admin home",
 			"mDescription" => "",
@@ -16,11 +15,11 @@ class Products extends CI_Controller {
 		$this->load->view('vFooter');
 	}
 
-	public function get_products(){
+	public function get_products(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		return $this->m_products->retrieve_products();
 	}
 
-	public function insert(){
+	public function insert(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$product_details['name'] = $this->input->post('name');
 		$product_details['description'] = $this->input->post('description');
 		$product_details['price'] = $this->input->post('price');
@@ -32,7 +31,7 @@ class Products extends CI_Controller {
 		redirect('');
 	}
 
-	public function update(){
+	public function update(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$product_details['selected_product'] = $this->input->post('selected_product');
 		$product_details['new_name'] = $this->input->post('new_name');
 		$product_details['new_description'] = $this->input->post('new_description');
@@ -45,7 +44,7 @@ class Products extends CI_Controller {
 		redirect('');
 	}
 
-	public function delete(){
+	public function delete(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$product_details['selected_product'] = $this->input->post('selected_product');
 		
 		$status = $this->m_products->delete_product($product_details);

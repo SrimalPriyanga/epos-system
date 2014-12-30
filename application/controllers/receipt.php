@@ -2,8 +2,7 @@
 
 class Receipt extends CI_Controller {
 
-	public function index()
-	{
+	public function index(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$this->load->model('m_receipt');
 		$data = array(
 			"title" => "BOI -Admin home",
@@ -17,11 +16,11 @@ class Receipt extends CI_Controller {
 		$this->load->view('vFooter');
 	}
 
-	public function get_products(){
+	public function get_products(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		return $this->m_products->retrieve_products();
 	}
 
-	public function generate(){
+	public function generate(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$this->load->model('m_receipt');
 		$receipt_data['date'] = $this->input->post('date');
 		$receipt_data['customer_name'] = $this->input->post('customer_name');

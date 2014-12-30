@@ -45,7 +45,7 @@
                             <h4>Products</h4>
                         </div>
                     </a>
-                    <a href="<?php echo base_url();?>">
+                    <a href="<?php echo base_url("login/perform_logout");?>">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
                             <h4>Log Out</h4>
                         </div>
