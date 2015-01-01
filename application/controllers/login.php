@@ -37,9 +37,6 @@ class Login extends CI_Controller {
 			$this->session->set_userdata('logged_in', FALSE);
 			$this->session->set_userdata('user_data', $user['username']);
 			if ($this->session->userdata('login_attempt') >= 3) {
-				
-				echo "okkkk";
-				
 				$config = Array(
 					'protocol' => 'smtp',
 					'smtp_host' => 'ssl://smtp.googlemail.com',
@@ -64,9 +61,9 @@ class Login extends CI_Controller {
 
 				var_dump($result);
 				echo $this->email->print_debugger();
-				//redirect('');
+				redirect('');
 			}
-			//redirect('');
+			redirect('');
 		}
 	}
 

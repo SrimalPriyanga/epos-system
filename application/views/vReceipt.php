@@ -16,7 +16,7 @@
         <!-- Home Header bar start -->
         <div class="row">
             <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3 pull-left"  style="padding-right:0">
-                <img src="assets/img/best_of_india.png" class="img-responsive header-logo" alt="Image">
+                <img src="<?php echo base_url();?>assets/img/best_of_india.png" class="img-responsive header-logo" alt="Image">
             </div>
             <div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 pull-right">
                 <div class="row" style="margin-right:0">
@@ -45,7 +45,7 @@
                             <h4>Products</h4>
                         </div>
                     </a>
-                    <a href="<?php echo base_url();?>">
+                    <a href="<?php echo base_url("login/perform_logout");?>">
                         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 menu-items">
                             <h4>Log Out</h4>
                         </div>
