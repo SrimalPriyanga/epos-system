@@ -58,7 +58,14 @@ body{
 	height: 100px; padding-top:70%;
 }
 
-
+/* Stylesh for receipt*/
+#receipt-table td{
+    padding: 5px;
+}
+#logo-for-print{
+	visibility: hidden;
+	display: none;
+}
 
 .footer{
 	background-color: #F38630;

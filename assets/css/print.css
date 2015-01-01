@@ -1,0 +1,24 @@
+/**
+ * Print Receipt Style
+ */
+* {
+  visibility:hidden;
+}
+#receipt-table * {
+  visibility:visible;
+}
+#logo-for-print * {
+  visibility:visible;
+  position:absolute;
+  left: 20px;
+  top: -70px;
+}
+#logo-for-print {
+  display: block;
+}
+
+#receipt-table {
+  position: absolute;
+  top: -50px;
+  left: 30px;
+}
