@@ -33,7 +33,6 @@ class Receipt extends CI_Controller {
 		$receipt_data['discount'] = $this->input->post('discount');
 		$receipt_data['tax'] = $this->input->post('tax');
 
-		// new Added
 		$receipt_data['total']=0;
 		for ($i=1; $i < 11; $i++) {
 			if (($this->input->post('product_'.$i.'_id') != "-") && ($this->input->post('product_'.$i.'_que') != '')){
@@ -69,24 +68,6 @@ class Receipt extends CI_Controller {
 		$this->load->view('vHeader', $data);
 		$this->load->view('vReceipt_view', $receipt_data);
 		$this->load->view('vFooter');
-		// new added things finished
-
-
-
-
-		// for ($i=1; $i < 11; $i++) {
-		// 	if (($this->input->post('product_'.$i.'_id') != "Select a product ...") && ($this->input->post('product_'.$i.'_que') != '')){
-		// 		$receipt_list['product_'.$i.'_id'] = $this->input->post('product_'.$i.'_id');
-		// 		$receipt_list['product_'.$i.'_que'] = $this->input->post('product_'.$i.'_que');
-		// 	}
-		// }
-		
-		// if (isset($receipt_list)) {
-		// 	$status = $this->m_receipt->set_receipt($receipt_data, $receipt_list);
-		// 	if ($status == TRUE) {
-		// 	redirect('/receipt');
-		// 	}else redirect('');
-		// }else redirect('');
 	}
 
 }
