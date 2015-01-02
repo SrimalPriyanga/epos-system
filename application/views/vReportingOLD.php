@@ -12,12 +12,6 @@
  */
 ?>
 <body>
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
-    
-    
     <div class="container">
         <!-- Home Header bar start -->
         <div class="row">
@@ -71,16 +65,16 @@
                     <div class="panel panel-default">
                         <div class="panel-heading"><h4 style="margin:0;">Submit bellow details to get the report</h4></div>
                         <div class="panel-body">
-                            <form id="report_form" action="<?php echo base_url(); ?>reporting/generate_graph" method="post" class="form-horizontal" role="form">
+                            <form action="" method="POST" class="form-horizontal" role="form">
                           
                                 <div class="form-group">
                                     <label for="" class="col-sm-3 control-label">Time Period- from:</label>
                                     <div class="col-sm-3">
-                                        <input name="date_start" id="start_date" type="date" name="" id="input" class="form-control" value="" required="required" title="" >
+                                        <input type="date" name="" id="input" class="form-control" value="" required="required" title="">
                                     </div>
                                     <label for="" class="col-sm-3 control-label">To:</label>
                                     <div class="col-sm-3">
-                                        <input name="date_end" id="end_date" type="date" name="" id="input" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
+                                        <input type="date" name="" id="input" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -88,7 +82,7 @@
                                     <div class="col-sm-3">
                                         <div class="checkbox">
                                             <label>
-                                                <input name="cb" type="checkbox" value="cb" id="cb">
+                                                <input type="checkbox" value="">
                                             </label>
                                         </div>
                                     </div>
@@ -96,7 +90,7 @@
                                     <div class="col-sm-3">
                                         <div class="checkbox">
                                             <label>
-                                                <input name="cheque" type="checkbox" value="cheque" id="cheque">
+                                                <input type="checkbox" value="">
                                             </label>
                                         </div>
                                     </div>
@@ -106,7 +100,7 @@
                                     <div class="col-sm-3">
                                         <div class="checkbox">
                                             <label>
-                                                <input name="tr" type="checkbox" value="tr" id="tr">
+                                                <input type="checkbox" value="">
                                             </label>
                                         </div>
                                     </div>
@@ -114,90 +108,26 @@
                                     <div class="col-sm-3">
                                         <div class="checkbox">
                                             <label>
-                                                <input name="especes" type="checkbox" value="especes" id="especes">
+                                                <input type="checkbox" value="">
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                   <div class="col-sm-9 col-sm-offset-3">
-                                      <button type="submit" class="btn btn-warning" >Genarate</button>
+                                      <button type="submit" class="btn btn-warning">Genarate</button>
                                   </div>
                                 </div>
                             </form>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" id="chart_main">
-                        <div class="hidden-xs hidden-sm col-md-2 col-lg-2" ></div>
-                        <center>
-                            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" id="chart">
-                             
-                            </div>
-                        </center>
-                        <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div> 
-                        
-                            <script type="text/javascript">
-                             $( "#report_form" ).submit(function( event ) {
-
-                                  // Stop form from submitting normally
-                                  event.preventDefault();
-                                  var selectedItems = 0;
-
-                                  //Checking the selected types
-                                  if($('#cb').is(':checked')){
-                                      cb=1;
-                                      selectedItems++;
-                                  }else{
-                                      cb=0;
-                                  }
-                                  if($('#cheque').is(':checked')){
-                                      cheque=1;
-                                      selectedItems++;
-                                  }else{
-                                      cheque=0;
-                                  }
-                                  if($('#tr').is(':checked')){
-                                      tr=1;
-                                      selectedItems++;
-                                  }else{
-                                      tr=0;
-                                  }
-                                  if($('#especes').is(':checked')){
-                                      especes=1;
-                                      selectedItems++;
-                                  }else{
-                                      especes=0;
-                                  }
-
-
-                                  if(selectedItems<1){
-                                      //If nothing selected
-                                        $( "#chart" ).html(
-                                          '<div class="alert alert-warning" role="alert">\n\
-                                              <p class="text-center">Please select at least one to get the Report</p>\n\
-                                            </div>');
-                                  }else{
-                                      //If something selected
-                                        var start_d = document.getElementById("start_date").value;
-                                        var end_d = document.getElementById("end_date").value;
-
-                                        $.post( "reporting/generate_graph", { 
-                                            cb: cb,
-                                            cheque: cheque,
-                                            tr: tr,
-                                            especes: especes,
-                                            start_date: start_d,
-                                            end_date: end_d
-                                        })
-                                        .done(function(chart) {
-                                            $( "#chart" ).html(chart);
-                                        });
-
-                                  }
-                                }); 
-                            </script>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="page-header">
+                          <h1>Graph<small>..</small></h1>
+                        </div>
                     </div>
+                        <!-- <div id="chart_div" style="width: 900px; height: 500px;"></div> -->
                 </div>
                 </div>
             </div>  <!-- Home-block end -->
