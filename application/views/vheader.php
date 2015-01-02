@@ -1,14 +1,10 @@
 <?php
-
 /* 
- * Copyright © 2012 - 2013 D2Real Solutions.
+ * Copyright © 2014 - 2015 Best of India.
  * All Rights Reserved.
- * 
- * These materials are unpublished, proprietary, confidential source code of
- * D2Real Solutions (pvt) Limited and constitute a TRADE SECRET of D2Real Solutions (pvt) Limited.
- * 
- * Creater : Srimal Priyanga < s.priyanga22@gmail.com >
- * Created on : Sep 1, 2014, 8:33:32 PM
+
+ * Developer : S.Priyanga < s.priyanga22@gmail.com > 
+ * Created on : Dec 21, 2014, 3:38:29 PM
  */
 ?>
 <!DOCTYPE html>
@@ -20,7 +16,7 @@
         <title><?php echo $title?></title>
         <meta name="description" content="<?php echo $mDescription?>"/>
         <meta name="keywords" content="<?php echo $mKeywords?>">
-        <link rel="icon" href="assets/img/main/favicon.ico" type="image/x-icon"/>
+        <link rel="shortcut icon" href="<?php echo base_url("assets/img/favi.png")?>"/>
     
     <!--include all header files-->
     <?php include 'includes/header_mapping.php'; ?> 

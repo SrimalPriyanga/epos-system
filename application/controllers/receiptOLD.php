@@ -9,8 +9,7 @@ class Receipt extends CI_Controller {
 			"mDescription" => "",
 			"mKeywords" => ""
 		);
-//		$product_list['content'] = $this->get_products();
-		$product_list['categories'] = $this->get_categories();
+		$product_list['content'] = $this->get_products();
 
 		$this->load->view('vHeader', $data);
 		$this->load->view('vReceipt', $product_list);
@@ -21,24 +20,6 @@ class Receipt extends CI_Controller {
 		return $this->m_products->retrieve_products();
 	}
 
-        public function get_categories(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
-		return $this->m_products->retrieve_categories();
-	}
-        
-        public function load_products($cat_id,$product_select_box_id){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
-		$products= $this->m_products->retrieve_products_by_category($cat_id);
-                
-                echo'
-                <select name="'.$product_select_box_id.'" id="'.$product_select_box_id.'" class="form-control">
-                    <option selected="selected">Select a product ...</option>';
-                    foreach ($products as $row){
-                    echo '<option value="'.$row['product_id'].'">'.$row['name'].'</option>';
-                    }
-                echo '</select>';
-	}
-        
-        
-        
 	public function generate(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
 		$this->load->model('m_receipt');
 		$data = array(
@@ -72,7 +53,7 @@ class Receipt extends CI_Controller {
 		$receipt_data['tax_amount']=number_format($receipt_data['tax_amount'], 2,'.', ',');
 		$receipt_data['tax_reduced_total']=$receipt_data['sub_total']-$receipt_data['tax_amount'];
 		$receipt_data['tax_reduced_total']=number_format($receipt_data['tax_reduced_total'], 2,'.', ',');
-		$receipt_data['total']=$receipt_data['sub_total']-$receipt_data['discount'];
+		$receipt_data['total']=$receipt_data['tax_reduced_total']-$receipt_data['discount'];
 		$receipt_data['total']=number_format($receipt_data['total'], 2,'.','');
         
 		if(isset($receipt_list)){

@@ -1,24 +1,23 @@
+<?php
+/* 
+ * Copyright © 2014 - 2015 Best of India.
+ * All Rights Reserved.
+
+ * Developer : S.Priyanga < s.priyanga22@gmail.com > 
+ * Created on : Dec 21, 2014, 3:38:29 PM
+ */
+?>
 <!DOCTYPE html>
-<!--
-Copyright © 2012 - 2014 D2Real Solutions.
-All Rights Reserved.
-
-These materials are unpublished, proprietary, confidential source code of
-D2Real Solutions (pvt) Limited and constitute a TRADE SECRET of D2Real Solutions (pvt) Limited.
-
-Author : S.Priyanga < s.priyanga22@gmail.com >
-Description : 
-Created on : Jun 21, 2014, 3:38:29 PM
--->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="description" content="<?php echo $mDescription;?>">
         <meta name="keywords" content="<?php echo $mKeywords;?>">
-        <title>fsf</title>
+        <title><?php echo $title;?></title>
+        <link rel="shortcut icon" href="<?php echo base_url("assets/img/favi.png")?>"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <style>
             body {background:url(assets/img/login_pattern.png) repeat center 0 #fff;}
@@ -31,18 +30,13 @@ Created on : Jun 21, 2014, 3:38:29 PM
             .loginBlk {background: rgb(144, 80, 49);color: #fff; border-color:rgb(227, 141, 19);}
             .wrapper {border-bottom-color:rgb(227, 141, 19);} 
         </style>
-        <script>
-            function loadmodal($modal) { // load bootstrap modals
-                $($modal).modal({ show: true});            
-            }
-        
-        </script>
     </head>
-<?php if(isset($login_failed) && $login_failed==TRUE){ ?>
-    <body onload='loadmodal("#loginfailed");'>
-<?php }else{ ?>
+
+<?php if($this->session->userdata('login_attempt') > 0){ ?>
+    <body onload="$('#loginfailed').modal('show')">
+<?php }else { ?>
     <body>
-<?php } ?>    
+<?php }?>   
         
         <div class="wrapper">
             <div class="loginBlk">
@@ -69,10 +63,10 @@ Created on : Jun 21, 2014, 3:38:29 PM
                 <br class="clr">
             </div>
         </div>
-        <div class="copyright">	best of india &copy; 2014.</div>
-        
+        <div class="copyright">	Best of India &copy; 2014.</div>
+
 <!-- Login Failed Modal Start-->
-<div class="modal fade" id="loginfailed" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="loginfailed">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -80,17 +74,15 @@ Created on : Jun 21, 2014, 3:38:29 PM
                 <h4 class="modal-title" id="myModalLabel" style="color: #ff0066">Login failed..!</h4>
             </div>
             <div class="modal-body">
-                <p>Please check the username and the password</p>
+            <p>Please check the username and the password</p>
             </div>
             <div class="modal-footer">
-<!--                <form method="post" action="" id="mdeleteform">-->
-                <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
-<!--                </form>-->
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
-        </div>
-    </div>
-</div> 
-<!--  Login Failed Modal End-->
-        
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!--  Login Failed Modal End-->        
+
     </body>
 </html>

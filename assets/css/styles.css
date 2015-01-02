@@ -55,7 +55,7 @@ body{
 	border: 2px solid #FBF7E2; border-left:10px solid #FF8000;
 }
 #home-table >tbody >tr >td >a >span{
-	height: 100px; padding-top:70%;
+	height: 100px; padding-top:25%;
 }
 
 /* Stylesh for receipt*/

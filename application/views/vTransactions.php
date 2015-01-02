@@ -1,16 +1,3 @@
-<?php
-
-/* 
- * Copyright © 2012 - 2013 D2Real Solutions.
- * All Rights Reserved.
- * 
- * These materials are unpublished, proprietary, confidential source code of
- * D2Real Solutions (pvt) Limited and constitute a TRADE SECRET of D2Real Solutions (pvt) Limited.
- * 
- * Creater : Srimal Priyanga < s.priyanga22@gmail.com >
- * Created on : Sep 1, 2014, 8:33:32 PM
- */
-?>
 <body>
     <div class="container">
         <!-- Home Header bar start -->
@@ -73,27 +60,27 @@
                                     </div>
                                     <label for="" class="col-sm-2 control-label">Defences</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="defences" id="defences" class="form-control" value="" required="required" placeholder="Enter" title="">
+                                        <input type="text" name="defences" id="defences" class="form-control" value="" required="required" placeholder="Enter" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">CB</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="cb" id="cb" class="form-control" value="" required="required" placeholder="Enter" title="">
+                                        <input type="text" name="cb" id="cb" class="form-control" value="" required="required" placeholder="Enter" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                     <label for="" class="col-sm-2 control-label">Cheque</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="cheque" id="cheque" class="form-control" value="" required="required" placeholder="Enter" title="">
+                                        <input type="text" name="cheque" id="cheque" class="form-control" value="" required="required" placeholder="Enter" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">TR</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="tr" id="tr" class="form-control" value="" required="required" placeholder="Enter" title="">
+                                        <input type="text" name="tr" id="tr" class="form-control" value="" required="required" placeholder="Enter" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                     <label for="" class="col-sm-2 control-label">ESPECES</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="especes" id="especes" class="form-control" value="" required="required" placeholder="Enter" title="">
+                                        <input type="text" name="especes" id="especes" class="form-control" value="" required="required" placeholder="Enter" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -199,7 +186,7 @@
                             foreach ($data_of_transactions as $value) {?>
                                 <tr>
                                     <td><?php echo $value['date'];?>
-                                        <a class="pull-right text-danger" href="<?php echo base_url("transactions/delete/?id="); echo $value['transaction_id'];?>" title="Click to delete this record"><span class="glyphicon glyphicon-remove"></span></a>
+                                        <a class="pull-right text-danger" onclick="confirm_delete(<?php echo $value['transaction_id'];?>)" href="#" data-toggle="modal" data-target="#modal-delete" title="Click to delete this record"><span class="glyphicon glyphicon-remove"></span></a>
                                     </td>
                                     <td><?php echo $value['cb']; $total['cb'] += $value['cb'];?> &euro;</td>
                                     <td><?php echo $value['cheque']; $total['cheque'] += $value['cheque'];?> &euro;</td>
@@ -233,3 +220,28 @@
             </div>  <!-- Home-block end -->
         </div>
     </div>  <!-- Home Content end -->
+
+<!-- Model for confirem to selected item to delete -->
+<div class="modal fade" id="modal-delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title text-danger">Confirm the deletion</h4>
+            </div>
+            <div class="modal-body">
+            <p>are you sure you want to delete this product....?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a id="href-delete" href="#" class="btn btn-danger">Delete</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<script type="text/javascript">
+    function confirm_delete($id){
+        document.getElementById("href-delete").href='<?php echo base_url("transactions/delete/?id=")?>'+$id;
+    }
+</script>

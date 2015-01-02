@@ -16,15 +16,6 @@ class M_products extends CI_Model {
         //var_dump($query->result_array());
     	return $query->result_array();
     }
-    
-    function retrieve_products_by_category($cat_id){
-    	$query = $this->db->query("
-    		SELECT * FROM products
-            WHERE category_id = $cat_id
-    		");
-        //var_dump($query->result_array());
-    	return $query->result_array();
-    }
 
     function retrieve_categories(){
         $query = $this->db->query('

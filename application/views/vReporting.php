@@ -1,16 +1,3 @@
-<?php
-
-/* 
- * Copyright © 2012 - 2013 D2Real Solutions.
- * All Rights Reserved.
- * 
- * These materials are unpublished, proprietary, confidential source code of
- * D2Real Solutions (pvt) Limited and constitute a TRADE SECRET of D2Real Solutions (pvt) Limited.
- * 
- * Creater : Srimal Priyanga < s.priyanga22@gmail.com >
- * Created on : Sep 1, 2014, 8:33:32 PM
- */
-?>
 <body>
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>

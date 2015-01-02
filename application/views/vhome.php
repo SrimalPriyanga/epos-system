@@ -1,16 +1,3 @@
-<?php
-
-/* 
- * Copyright © 2012 - 2013 D2Real Solutions.
- * All Rights Reserved.
- * 
- * These materials are unpublished, proprietary, confidential source code of
- * D2Real Solutions (pvt) Limited and constitute a TRADE SECRET of D2Real Solutions (pvt) Limited.
- * 
- * Creater : Srimal Priyanga < s.priyanga22@gmail.com >
- * Created on : Sep 1, 2014, 8:33:32 PM
- */
-?>
 <body>
     <div class="container">
         <!-- Home Header bar start -->
@@ -64,8 +51,7 @@
                             <tbody>
                                 <tr style="border-left:10px solid #FFFF66;">
                                     <td><h1>Daily Transactions</h1>             <!-- Navigation + Block1 -->
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                        Add, View Transactions of the day and the Orders
                                     </td>
                                     <td class="alert-warning">
                                         <a href="<?php echo base_url();?>transactions">
@@ -75,8 +61,7 @@
                                 </tr>
                                 <tr style="border-left:10px solid #FFCC00;">
                                     <td><h1>Receipt Genarater</h1>              <!-- Navigation + Block2 -->
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                        Generate a Receipt for an Order and Print it.
                                     </td>
                                     <td class="alert-warning">
                                         <a href="<?php echo base_url();?>receipt">
@@ -86,8 +71,7 @@
                                 </tr>
                                 <tr style="border-left:10px solid #FF9900;">
                                     <td><h1>Reporting</h1>                      <!-- Navigation + Block3 -->
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                        Analyze and Compare the Transactions with a Visualized Graph.
                                     </td>
                                     <td class="alert-warning">
                                         <a href="<?php echo base_url();?>reporting">
@@ -97,8 +81,7 @@
                                 </tr>
                                 <tr style="border-left:10px solid #C13100;">
                                     <td><h1>Products</h1>                      <!-- Navigation + Block3 -->
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                                        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                                        Add, Modify, Delete Products with Product Management.
                                     </td>
                                     <td class="alert-warning">
                                         <a href="<?php echo base_url();?>products">

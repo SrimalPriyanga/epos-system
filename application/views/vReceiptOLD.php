@@ -84,37 +84,23 @@
                                 for ($i=1; $i <11 ; $i++) { ?>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Select Category</label>
-<!--                                    <select class="form-control" id="batch" name="batch" onchange='loadacyear_with_batch("#acyeardiv","<?php //echo base_url(); ?>coordinator/select/select_acyears_from_batch");'>
-                                        <option value="-">Select a Batch</option>
-                                        <?php                    
-                                        //foreach($batches as $lec_batches) {
-                                            //echo'<option value="'.$lec_batches->batch_id.'">' .$lec_batches->batch_name. '</option>';
-//                                        }
-                                        ?>
-                                    </select>
-
-                                    <h4 style="text-align: center; margin: 35px auto 5px auto">Batch Academic year</h4>
-                                    <hr class="hr-style-two">
-                                    <div id="acyeardiv">
-                                    <select class="form-control" name="acyear">
-                                        <option value="-">Select an Academic Year</option>
-
-                                    </select>
-                                    </div>-->
-                                    
                                     <div class="col-sm-3">
-                                        <select name="category_<?php echo $i?>_id" id="category_<?php echo $i?>_id" class="form-control" onchange='load_products("#products_<?php echo $i?>_div","<?php echo base_url(); ?>receipt/load_products","category_<?php echo $i?>_id","product_<?php echo $i?>_id");'>
+                                        <select name="product_<?php echo $i?>_id" id="product_<?php echo $i?>_id" class="form-control">
                                             <option selected="selected">Select a category ...</option>
-                                            <?php $count=1?>                                            
-                                            <?php foreach ($categories as $row) { ?>
-                                            <option value="<?php echo $row['category_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
+                                            <?php $count=1?>
+                                            <?php foreach ($content as $row) { ?>
+                                            <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
                                             <?php $count++; }?>
                                         </select>
                                     </div>
                                     <label for="" class="col-sm-2 control-label">Select Product <?php echo $i?></label>
-                                    <div class="col-sm-3" id="products_<?php echo $i?>_div">
+                                    <div class="col-sm-3">
                                         <select name="product_<?php echo $i?>_id" id="product_<?php echo $i?>_id" class="form-control">
                                             <option selected="selected">Select a product ...</option>
+                                            <?php $count=1?>
+                                            <?php foreach ($content as $row) { ?>
+                                            <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
+                                            <?php $count++; }?>
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
@@ -122,15 +108,6 @@
                                     </div>
                                 </div>
                                 <?php } ?>
-                                <script>
-                                    function load_products(id,urlprefix,cat_sel_id,proct_no_id) {
-                                        cat_id = $("#"+cat_sel_id).val();
-                                        url=urlprefix+'/'+cat_id+'/'+proct_no_id;
-                                        //alert(url);
-                                        $(id).load(url);
-                                    }
-                                </script>
-                                
                                 <div class="form-group">
                                   <div class="col-sm-10 col-sm-offset-2">
                                       <button type="submit" class="btn btn-warning">Generate</button>
