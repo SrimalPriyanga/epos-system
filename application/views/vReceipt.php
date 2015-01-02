@@ -69,20 +69,28 @@
                           
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Date</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-4">
                                         <input type="date" name="date" id="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
+                                    </div>
+                                    <label for="" class="col-sm-2 control-label">Name of customer</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="customer_name" id="customer_name" class="form-control" value="" required="required" placeholder="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Name of customer</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="customer_name" id="customer_name" class="form-control" value="" required="required" placeholder="" title="">
+                                    <label for="" class="col-sm-2 control-label">Discount</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="discount" id="discount" class="form-control" value="" required="required" placeholder="" title="">
+                                    </div>
+                                    <label for="" class="col-sm-2 control-label">Tax</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="tax" id="tax" class="form-control" value="" required="required" placeholder="" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Address</label>
                                     <div class="col-sm-10">
-                                        <input type="text" name="address" id="address" class="form-control" value="" required="required" placeholder="" title="">
+                                        <textarea type="text" name="address" id="address" class="form-control" value="" required="required" placeholder="" title=""></textarea>
                                     </div>
                                 </div>
                                 <?php
@@ -103,18 +111,6 @@
                                     </div>
                                 </div>
                                 <?php } ?>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Discount</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="discount" id="discount" class="form-control" value="" required="required" placeholder="" title="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Tax</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="tax" id="tax" class="form-control" value="" required="required" placeholder="" title="">
-                                    </div>
-                                </div>
                                 <div class="form-group">
                                   <div class="col-sm-10 col-sm-offset-2">
                                       <button type="submit" class="btn btn-warning">Generate</button>

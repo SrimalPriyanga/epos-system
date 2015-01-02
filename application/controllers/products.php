@@ -45,7 +45,7 @@ class Products extends CI_Controller {
 	}
 
 	public function delete(){	if ($this->session->userdata('logged_in') != TRUE) redirect(''); //Check login status
-		$product_details['selected_product'] = $this->input->post('selected_product');
+		$product_details['selected_product'] = $this->input->get('selected_product');
 		
 		$status = $this->m_products->delete_product($product_details);
 		if ($status == TRUE) {

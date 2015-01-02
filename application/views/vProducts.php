@@ -67,20 +67,18 @@
                             <form action="<?php echo base_url();?>products/insert" method="POST" class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Product Name</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-6">
                                         <input type="text" name="name" id="name" class="form-control" value="" required="required" placeholder="Enter product name here" title="Product Name">
+                                    </div>
+                                    <label for="" class="col-sm-1 control-label">Price</label>
+                                    <div class="col-sm-3">
+                                        <input type="text" name="price" id="price" class="form-control" value="" required="required" placeholder="Enter product price here (ex: 10.99)" title="Price">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Description</label>
                                     <div class="col-sm-10">
                                         <textarea type="text" name="description" id="description" class="form-control" value="" required="required" placeholder="Enter product description here" title="Product Description"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Price</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="price" id="price" class="form-control" value="" required="required" placeholder="Enter product price here (ex: 100.99)" title="Price">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -185,7 +183,8 @@
                                         <?php $count=1?>
                                         <?php foreach ($content as $row) { ?>
                                         <tr>
-                                            <td><?php echo $count;?></td>
+                                            <td><?php echo $count;?>
+                                            <a href="#modal-delete" onclick="get_id(<?php echo $row['product_id']?>)" data-toggle="modal" data-target="#modal-delete" class="pull-right"><span class="glyphicon glyphicon-remove"></span></a></td>
                                             <td><?php echo $row['name'];?></td>
                                             <td><?php echo $row['description'];?></td>
                                             <td><?php echo $row['price'];?> &euro;</td>
@@ -201,3 +200,31 @@
             </div>
         </div> <!-- Home Content end -->
     </div>  <!-- Container end -->
+
+    <!-- ?selected_product=<?php //echo $row['product_id']?> -->
+<!-- <a href="<?php //echo base_url("products/delete?selected_product=".$row['product_id']);?>" class="pull-right"></a> -->
+<!-- Model for confirem to selected item to delete -->
+<div class="modal fade" id="modal-delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Modal title</h4>
+            </div>
+            <div class="modal-body">
+            <script type="text/javascript">
+            function get_id($id){
+                //document.write($id);
+                window.location.href = "products.php?id=" +$id;
+            }
+            </script>
+            <?php $Selectid = $_GET['id']; 
+            var_dump($Selectid)?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <a href="<?php echo base_url("products/delete?selected_product=".$row['product_id']);?>" class="btn btn-primary">Save changes</a>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

@@ -68,8 +68,12 @@
                             <form action="<?php echo base_url();?>transactions/insert" method="POST" class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Date</label>
-                                    <div class="col-sm-10">
+                                    <div class="col-sm-4">
                                         <input type="date" name="date" id="date" class="form-control" value="<?php echo date('Y-m-d'); ?>" required="required" title="">
+                                    </div>
+                                    <label for="" class="col-sm-2 control-label">Defences</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="defences" id="defences" class="form-control" value="" required="required" placeholder="Enter" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -90,12 +94,6 @@
                                     <label for="" class="col-sm-2 control-label">ESPECES</label>
                                     <div class="col-sm-4">
                                         <input type="text" name="especes" id="especes" class="form-control" value="" required="required" placeholder="Enter" title="">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="" class="col-sm-2 control-label">Defences</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" name="defences" id="defences" class="form-control" value="" required="required" placeholder="Enter" title="">
                                     </div>
                                 </div>
                                 <div class="form-group">
