@@ -152,11 +152,11 @@
                                 <tr >
                                     <td border="0" class="col-xs-12 col-sm-12 col-md-12" style="padding:0px;border-color: #fff">
                                         <table border="1" style="margin:0px" class="col-xs-12 col-sm-12 col-md-12">
-                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Account Name</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">SARL UNITED KITCHEN - BEST OF INDIA</td></tr>
-                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Bank Name</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">CREDIT DU NORD</td></tr>
-                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Bank Address</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">101 AV PHILLEPE AUGUSTE PARIS 75011</td></tr>
-                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Swift BIC</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">NORDDFRPP</td></tr>
-                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">IBAN No</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">FR76 3007 6020 5722 7459 0020 094</td></tr>
+                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Nom du compte bancaire</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">SARL UNITED KITCHEN - BEST OF INDIA</td></tr>
+                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Nom de la banque</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">CREDIT DU NORD</td></tr>
+                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">Adresse de la banque</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">101 AV PHILLEPE AUGUSTE PARIS 75011</td></tr>
+                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">SWIFT BIC</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">NORDDFRPP</td></tr>
+                                            <tr><td border="0" class="col-xs-6 col-sm-6 col-md-6">No IBAN</td><td border="0" class="col-xs-6 col-sm-6 col-md-6">FR76 3007 6020 5722 7459 0020 094</td></tr>
                                         </table>                                        
                                     </td>
                                 </tr>

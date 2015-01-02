@@ -9,21 +9,31 @@ class M_products extends CI_Model {
 
     function retrieve_products(){
     	$query = $this->db->query('
-    		SELECT * FROM products
+    		SELECT products.*, categories.name as cat_name
+            FROM products
+            INNER JOIN categories WHERE products.category_id = categories.category_id
     		');
+        //var_dump($query->result_array());
     	return $query->result_array();
+    }
+
+    function retrieve_categories(){
+        $query = $this->db->query('
+            SELECT * FROM categories
+            ');
+        return $query->result_array();
     }
 
     function insert_product($product_details){
     	$query = $this->db->query('
-    		INSERT INTO products(name, description, price) VALUES("'.$product_details['name'].'", "'.$product_details['description'].'", '.$product_details['price'].')
+    		INSERT INTO products(category_id, name, description, price) VALUES('.$product_details['category'].', "'.$product_details['name'].'", "'.$product_details['description'].'", '.$product_details['price'].')
     		');
     	return $query;
     }
 
     function update_product($product_details){
     	$query = $this->db->query('
-    		UPDATE products SET name="'.$product_details['new_name'].'", description="'.$product_details['new_description'].'", price='.$product_details['new_price'].'
+    		UPDATE products SET category_id='.$product_details['category'].', name="'.$product_details['new_name'].'", description="'.$product_details['new_description'].'", price='.$product_details['new_price'].'
     		WHERE product_id = '.$product_details['selected_product'].'
     		');
     	return $query;
