@@ -88,7 +88,7 @@
                                     </div>
                                     <label for="" class="col-sm-2 control-label">Price</label>
                                     <div class="col-sm-3">
-                                        <input type="text" name="price" id="price" class="form-control" value="" required="required" placeholder="Enter product price here (ex: 10.99)" title="Price">
+                                        <input type="text" name="price" id="price" class="form-control" value="" required="required" placeholder="Enter product price here (ex: 10.99)"  title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -99,81 +99,7 @@
                             </form>
                         </div>
                     </div> <!-- Product ADD END-->
-
-                    <div class="row"> <!-- Start products edit & Delete -->
-                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                            <!-- <div class="panel panel-success">
-                                <div class="panel-heading"><h4 style="margin:0;">Edit Products</h4></div>
-                                <div class="panel-body">
-                                    <form action="<?php echo base_url();?>products/update" method="POST" class="form-horizontal" role="form">
-                                        <div class="form-group">
-                                            <label for="" class="col-sm-3 control-label">Select product</label>
-                                            <div class="col-sm-9">
-                                                <select name="selected_product" id="selected_product" class="form-control" required="required">
-                                                <option selected="selected">Select a product ...</option>
-                                                <?php $count=1?>
-                                                <?php foreach ($content as $row) { ?>
-                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
-                                                <?php $count++; }?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="col-sm-3 control-label">Enter New Name</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="new_name" id="new_name" class="form-control" placeholder="Enter new name here" required="required" title="">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="col-sm-3 control-label">Description</label>
-                                            <div class="col-sm-9">
-                                                <textarea type="text" name="new_description" id="new_description" class="form-control" placeholder="Enter the description" required="required" placeholder="Enter product description here" title="Product Description"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="" class="col-sm-3 control-label">Price</label>
-                                            <div class="col-sm-9">
-                                                <input type="text" name="new_price" id="new_price" class="form-control" placeholder="Enter the price (ex: 10.54)" required="required" title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-9 col-sm-offset-3">
-                                                <button type="submit" class="btn btn-success">Update</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> -->  
-                        </div> <!-- Product edit panel End -->
-
-                        <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5"> <!-- Product delete panel Start -->
-                            <!-- <div class="panel panel-danger">
-                                <div class="panel-heading"><h4 style="margin:0;">Delete Products</h4></div>
-                                <div class="panel-body">
-                                    <form action="<?php echo base_url();?>products/delete" method="POST" class="form-horizontal" role="form">
-                                        <div class="form-group">
-                                            <label for="" class="col-sm-4 control-label">Select a product to delete</label>
-                                            <div class="col-sm-8">
-                                                <select name="selected_product" id="selected_product" class="form-control" required="required">
-                                                    <option selected="selected">Select a product ...</option>
-                                                <?php $count=1?>
-                                                <?php foreach ($content as $row) { ?>
-                                                    <option value="<?php echo $row['product_id'];?>"><?php echo $count;?> <?php echo $row['name'];?></option>
-                                                <?php $count++; }?>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-8 col-sm-offset-4">
-                                                <button type="submit" class="btn btn-danger">Delete</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div> -->
-                        </div> <!-- Product delete panel End -->
-                    </div> <!-- Products edit & Delete Row end-->
-
+                    
                     <div class="panel panel-primary"> <!-- Product list start-->
                         <div class="panel-heading">
                             <h3 class="panel-title">Product Details</h3>

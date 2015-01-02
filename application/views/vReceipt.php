@@ -80,11 +80,11 @@
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Discount</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="discount" id="discount" class="form-control" value="" required="required" placeholder="" title="">
+                                        <input type="text" name="discount" id="discount" class="form-control" value="" required="required" placeholder=""  title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                     <label for="" class="col-sm-2 control-label">Tax</label>
                                     <div class="col-sm-4">
-                                        <input type="text" name="tax" id="tax" class="form-control" value="" required="required" placeholder="" title="">
+                                        <input type="text" name="tax" id="tax" class="form-control" value="" required="required" placeholder=""  title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -107,7 +107,7 @@
                                         </select>
                                     </div>
                                     <div class="col-sm-2">
-                                        <input type="text" name="product_<?php echo $i?>_que" id="product_<?php echo $i?>_que" class="form-control" value="" title="" placeholder="Enter quentity here">
+                                        <input type="text" name="product_<?php echo $i?>_que" id="product_<?php echo $i?>_que" class="form-control" value="" placeholder="Enter quentity here"  title="Numbers only" pattern="(^[0-9]*[1-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[1-9]+[0-9]*$)|(^[0-9]*[1-9]+[0-9]*$)">
                                     </div>
                                 </div>
                                 <?php } ?>

@@ -9,6 +9,10 @@ class Transactions extends CI_Controller {
 			"mKeywords" => ""
 		);
 		$order_details = $this->get_order_details();
+		if ($order_details == FALSE) {
+			$order_details['availability'] = FALSE;
+		}else $order_details['availability'] = TRUE;
+		
 		$order_details['data_of_transactions'] = $this->get_transaction_history();
 		//var_dump($order_details['data_of_transactions']);
 		$this->load->view('vHeader',$data);

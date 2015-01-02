@@ -110,7 +110,8 @@
                         <h2 style="margin:0">Today Orders<small> find information bellow</small></h2>
                     </div>
 
-                    <?php $count =0; $index =0;
+                    <?php if ($availability === TRUE) {
+                    $count =0; $index =0;
                     for ($i=1; $i <=$num_of_orders; $i+=2) { ?>
                     <div class="row">
                         <?php for ($j=0; $j<2; $j++) {
@@ -162,6 +163,13 @@
                                 $count++;
                               }?>
                     </div>
+                    <?php } //end for
+                    }else { ?>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <h4>You haven't any orders today</h4>
+                        </div>
+                    </div> 
                     <?php }?>
                     <!-- Todays orders End -->
 
