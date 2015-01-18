@@ -7,6 +7,10 @@
 #receipt-table * {
   visibility:visible;
 }
+#receipt_address{
+    
+  visibility:visible;
+}
 #logo-for-print * {
   visibility:visible;
   position:absolute;
@@ -21,4 +25,5 @@
   position: absolute;
   top: -50px;
   left: 30px;
+  margin-top: 30px;
 }

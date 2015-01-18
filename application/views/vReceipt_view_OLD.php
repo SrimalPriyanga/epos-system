@@ -181,7 +181,11 @@
     </div>
     
     <!-- Specific Stylesh and Script for print -->
-    <style type="text/css">        
+    <style type="text/css">
+/*        #receipt_address{
+            visibility: hidden;
+        }*/
+        
         @media print {
             * {
                 visibility:hidden;
@@ -193,32 +197,48 @@
             
             #logo-for-print * {
                 visibility:visible;
+                /*display: table-header-group;*/
                 display: block;
                 position:fixed;
+                /*position:absolute;*/
+                /*top:30px;*/
                 left: 30px;
                 top: 0px;
+                
+                /*top: 0%;*/
+/*                top: -10%;*/
             }
             #logo-for-print {
                 display: block;
             }
             #receipt-table {
                 width: 100%;
+                /*height: 80%;*/
                 position: absolute;
+                /*top: -70%;*/
                 top: -80px;
                 left: 15px;
+/*                margin-left: auto;
+                margin-right: auto;
+                zoom: 95%;
+*/            
             }
+            /* #receipt-table #page_break{
+                page-break-after:always;
+            }*/
             #receipt_address * {
               visibility:visible;
               display: table-footer-group;
               position: fixed;
               left:0;
+/*              position: absolute;*/
+                /*bottom: -90%;*/
                 bottom: -60px;
             }
         }
     </style>
     <script>
         function Print_Receipt(){
-            //Print the Receipt
             window.print();
         }                        
     </script>

@@ -1,6 +1,7 @@
 <div id="chart_div"></div>
 <?php 
 $i=0;
+//Preparing the data array
 foreach ($graph_data as $bars) {
 
     $bar_data[$i]="{Date: '".$bars['date']."', ";

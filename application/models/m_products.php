@@ -11,9 +11,9 @@ class M_products extends CI_Model {
     	$query = $this->db->query('
     		SELECT products.*, categories.name as cat_name
             FROM products
-            INNER JOIN categories WHERE products.category_id = categories.category_id
+            INNER JOIN categories WHERE products.category_id = categories.category_id ORDER BY cat_name ASC, products.name ASC
     		');
-        //var_dump($query->result_array());
+        
     	return $query->result_array();
     }
     
@@ -22,7 +22,6 @@ class M_products extends CI_Model {
     		SELECT * FROM products
             WHERE category_id = $cat_id
     		");
-        //var_dump($query->result_array());
     	return $query->result_array();
     }
 

@@ -4,17 +4,18 @@ class Reporting extends CI_Controller {
 
 	public function index(){	
             if ($this->session->userdata('logged_in') != TRUE) redirect(base_url()); //Check login status
-		$data = array(
-			"title" => "BOI - Admin Reporting",
-			"mDescription" => "",
-			"mKeywords" => ""
-		);
-		$this->load->view('vHeader',$data);
-		$this->load->view('vReporting');
-		$this->load->view('vFooter');
+            $data = array(
+                    "title" => "BOI - Admin Reporting",
+                    "mDescription" => "",
+                    "mKeywords" => ""
+            );
+            $this->load->view('vHeader',$data);
+            $this->load->view('vReporting');
+            $this->load->view('vFooter');
 	}
 	
         public function generate_graph(){	
+            //Prepare the details for the graph
             $data['start_date'] = $this->input->post('start_date');
             $data['start_date'] = date('Y-m-d', strtotime($data['start_date']));
             

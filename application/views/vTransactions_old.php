@@ -55,21 +55,26 @@
                             <form action="<?php echo base_url();?>transactions/insert" method="POST" class="form-horizontal" role="form">
                                 <div class="form-group">
                                     <label for="" class="col-sm-2 control-label">Date</label>
-                                    
-                                    
                                     <div class="col-sm-4">
-                                        <input type="date" name="date" id="date" class="form-control date1" value="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d'); ?>" required="required" title="" onchange="date_exist('<?php echo base_url().'transactions/' ?>','<?php echo date('Y-m-d') ?>');">
+                                        <input type="date" name="date" id="date" class="form-control date1" value="<?php echo date('Y-m-d'); ?>" required="required" title="" onchange="date_exist();">
                                     </div>
                                     <script>
-                                        function date_exist(urlprefix,today){
-                                            seldate=$("#date").val();
-                                            if(today!==seldate){
-                                                url=urlprefix+"exist_dates/"+seldate;
-                                                $("#message").load(url);
-                                            }else{
-                                                url=urlprefix+"date_today";
-                                                $("#message").load(url);
-                                            }
+                                        function date_exist(){
+                                            date=$(".date1").val();
+                                            console.log(date);
+                                            $(document).ready(function(){
+//                                                $('#data_table tr').each(function(){
+                                                        console.log('inside1');
+                                                    if($(this).find('td').eq(0).text() === date){
+                                                        console.log('inside2');
+                                                        $( "#message" ).html(
+                                                              '<div class="alert alert-warning" role="alert">\n\
+                                                                  <p class="text-center">Please select at least one to get the Report</p>\n\
+                                                                </div>');
+                                                                        }
+//                                                });
+                                            });
+                                            
                                         }
                                     </script>
                                     <label for="" class="col-sm-2 control-label">Defences</label>
@@ -141,39 +146,25 @@
                                 </tr>
                             </thead>
                             <tbody>
-<!--                            <script>
-                                var dates = [];
-                            </script>-->
-                            <?php 
-                            $total = array("cb"=>0, "cheque"=>0, "tr"=>0, "especes"=>0, "total"=>0, "defences"=>0, "bank"=>0, "safe"=>0, "balance"=>0, "inhand"=>0);
-                            $dates=array();
-                            $i=0;
-                            echo '<script>var dates = [];</script>';
-                            if(isset($data_of_transactions) && !empty($data_of_transactions)){
-                                foreach ($data_of_transactions as $value) {
-                                    echo'<script>dates['.$i.']='.$value['date'].';</script>';
-                                ?>
+                            <?php $total = array("cb"=>0, "cheque"=>0, "tr"=>0, "especes"=>0, "total"=>0, "defences"=>0, "bank"=>0, "safe"=>0, "balance"=>0, "inhand"=>0);
+                            foreach ($data_of_transactions as $value) {?>
                                 <tr>
-                                    <td><span id="date_<?php echo $value['transaction_id'];?>" name="dates"><?php echo $value['date'];$dates[$i]=$value['date'];?></span>&nbsp;&nbsp;
+                                    <td clas="dates"><?php echo $value['date'];?>&nbsp;&nbsp;
                                         <a class="pull-leftt text-danger" onclick="confirm_delete(<?php echo $value['transaction_id'];?>)" href="#" data-toggle="modal" data-target="#modal-delete" title="Click to delete this record"><span class="glyphicon glyphicon-remove"></span></a>
                                         <a href="#" onclick="confirm_edit(<?php echo $value['transaction_id'];?>)" data-toggle="modal" data-target="#modal-edit" class="pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
                                     </td>
-                                    <td align="right" ><span id="cb_<?php echo $value['transaction_id'];?>"><?php echo $value['cb']; $total['cb'] += $value['cb'];?></span> &euro;</td>
-                                    <td align="right"><span id="cheque_<?php echo $value['transaction_id'];?>"><?php echo $value['cheque']; $total['cheque'] += $value['cheque'];?></span> &euro;</td>
-                                    <td align="right"><span id="tr_<?php echo $value['transaction_id'];?>"><?php echo $value['tr']; $total['tr'] += $value['tr'];?></span> &euro;</td>
-                                    <td align="right"><span id="especes_<?php echo $value['transaction_id'];?>"><?php echo $value['especes']; $total['especes'] += $value['especes'];?></span> &euro;</td>
-                                    <td align="right"><span id="total_<?php echo $value['transaction_id'];?>"><?php echo $value['total']; $total['total'] += $value['total'];?></span> &euro;</td>
-                                    <td align="right"><span id="defences_<?php echo $value['transaction_id'];?>"><?php echo $value['defences']; $total['defences'] += $value['defences'];?></span> &euro;</td>
-                                    <td align="right"><span id="bank_<?php echo $value['transaction_id'];?>"><?php echo $value['bank']; $total['bank'] += $value['bank'];?></span> &euro;</td>
-                                    <td align="right"><span id="safe_<?php echo $value['transaction_id'];?>"><?php echo $value['safe']; $total['safe'] += $value['safe'];?></span> &euro;</td>
-                                    <td align="right"><span id="balance_<?php echo $value['transaction_id'];?>"><?php echo $value['balance']; $total['balance'] += $value['balance'];?></span> &euro;</td>
-                                    <td align="right"><span id="inhand_<?php echo $value['transaction_id'];?>"><?php echo $value['inhand']; $total['inhand'] += $value['inhand'];?></span> &euro;</td>
+                                    <td align="right"><?php echo $value['cb']; $total['cb'] += $value['cb'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['cheque']; $total['cheque'] += $value['cheque'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['tr']; $total['tr'] += $value['tr'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['especes']; $total['especes'] += $value['especes'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['total']; $total['total'] += $value['total'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['defences']; $total['defences'] += $value['defences'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['bank']; $total['bank'] += $value['bank'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['safe']; $total['safe'] += $value['safe'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['balance']; $total['balance'] += $value['balance'];?> &euro;</td>
+                                    <td align="right"><?php echo $value['inhand']; $total['inhand'] += $value['inhand'];?> &euro;</td>
                                 </tr>
-                            <?php 
-                                    $i++;
-                                
-                                }
-                            }?>
+                            <?php }?>
                             </tbody>
 <!--                            <tfoot>-->
                                 <tr class="bg-danger bootgrid-footer">
@@ -191,14 +182,6 @@
                                 </tr>
                             <!--</tfoot>-->
                         </table>
-                        <?php 
-//                        echo '<script>alert("te");';
-//                        for($i1=0;$i1<$o;$i1++){
-//                            echo 'console.log(document.getElementById("date_'.$value['transaction_id'].'").innerHTmL);';
-//                        }
-//                              
-//                                echo '</script>';
-                        ?>
                     </div>  <!-- Previous recordes History End -->
                     
                     <!-- Todays orders start -->
@@ -218,22 +201,15 @@
                                                 <!-- <a class="media-left media-middle" href="">
                                                     <button type="button" class="btn btn-large btn-block btn-default">01</button>
                                                 </a> -->
-                                                <div class="media-body" style="display:block;">
+                                                <div class="media-body">
+                                                <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
                                                     <div class="row">
                                                         <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                                                             <h4 class="media-heading">Customer: <span class="text-primary"><?php echo $content[$index]['customer_name']?></span><br />
-                                                             <small class="text-info">Addres:<?php echo $content[$index]['address']?></small></h4>
+                                                             <small class="text-info"><?php echo $content[$index]['address']?></small></h4>
                                                         </div>
                                                         <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                                                            <h5 class="font-ubuntu">
-                                                                Discount: <span class="text-danger"><?php echo $content[$index]['discount']?>&euro;</span>
-                                                            </h5>
-                                                            <h5 class="font-ubuntu">
-                                                                Tax: <span class="text-danger"><?php echo $content[$index]['tax']?>%</span>
-                                                            </h5>
-                                                            <h5 class="font-ubuntu">
-                                                                Total: <span class="text-danger"><?php if(isset($content[$index]['total'])) { echo $content[$index]['total'];}?>&euro;</span>
-                                                            </h5>
+                                                            <h5 class="font-ubuntu">Discount: <span class="text-danger"><?php echo $content[$index]['discount']?></span><br />Tax: <span class="text-danger"><?php echo $content[$index]['tax']?>%</span></h5>
                                                         </div>
                                                     </div>
                                                     <div class="table-responsive">
@@ -243,7 +219,6 @@
                                                                     <th>#</th>
                                                                     <th>Product</th>
                                                                     <th>Quantity</th>
-                                                                    <th>Total Cost</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
@@ -253,15 +228,19 @@
                                                                     <td><?php echo $id;?></td>
                                                                     <td><?php echo $content[$index]['name']?></td>
                                                                     <td><?php echo $content[$index]['quantity']?></td>
-                                                                    <td><?php echo $content[$index]['sub_total']?>&euro;</td>
                                                                 </tr>
                                                             <?php $index++; $id++;
                                                             if ($index >= $number_of_records) { break; }
                                                             }while($content[$index-1]['receipt_id'] == $content[$index]['receipt_id'])?>
                                                             </tbody>
                                                         </table>
+                                                    <!--<div class="row">-->
+                                                        <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                                                            <h4 class="media-heading">Total: <span class="text-primary"><?php if(isset($content[$index]['total'])) { echo $content[$index]['total'];}?></span>
+                                                    </div>
                                                     </div>
                                                 </div>
+                                                <!--</div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -304,91 +283,32 @@
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 
-<!-- Model for edit transactions -->
-<div class="modal fade" id="modal-edit">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title text-danger">Enter details to edit record</h4>
-            </div>
-            <div class="modal-body">
-                <form action="<?php echo base_url();?>transactions/update" method="POST" class="form-horizontal" role="form" id="edit_form">
-                    <div class="form-group">
-                        <input type="hidden" name="id" id="id" >
-                        <!--<input type="text" id="id2">-->
-                        <label for="" class="col-sm-2 control-label">Date</label>
-                        <div class="col-sm-4">
-                        <input type="date" name="new_date" id="new_date" class="form-control date1" required="required" title="" max="<?php echo date('Y-m-d'); ?>" >
-                        </div>
-                        <label for="" class="col-sm-2 control-label">Defences</label>
-                        <div class="col-sm-4">
-                        <input type="text" name="new_defences" id="new_defences" class="form-control" required="required" placeholder="Enter Defences" title="Numbers only" pattern="(^[0-9]*[0-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[0-9]+[0-9]*$)|(^[0-9]*[0-9]+[0-9]*$)">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">CB</label>
-                        <div class="col-sm-4">
-                            <input type="text" name="new_cb" id="new_cb" value="" class="form-control" required="required" placeholder="Enter CB" title="Numbers only" pattern="(^[0-9]*[0-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[0-9]+[0-9]*$)|(^[0-9]*[0-9]+[0-9]*$)">
-                        </div>
-                        <label for="" class="col-sm-2 control-label">Cheque</label>
-                        <div class="col-sm-4">
-                        <input type="text" name="new_cheque" id="new_cheque" class="form-control" value="" required="required" placeholder="Enter Cheque" title="Numbers only" pattern="(^[0-9]*[0-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[0-9]+[0-9]*$)|(^[0-9]*[0-9]+[0-9]*$)">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="" class="col-sm-2 control-label">TR</label>
-                        <div class="col-sm-4">
-                        <input type="text" name="new_tr" id="new_tr" class="form-control" value="" required="required" placeholder="Enter TR" title="Numbers only" pattern="(^[0-9]*[0-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[0-9]+[0-9]*$)|(^[0-9]*[0-9]+[0-9]*$)">
-                        </div>
-                        <label for="" class="col-sm-2 control-label">ESPECES</label>
-                        <div class="col-sm-4">
-                        <input type="text" name="new_especes" id="new_especes" class="form-control" value="" required="required" placeholder="Enter ESPECES" title="Numbers only" pattern="(^[0-9]*[0-9]+[0-9]*\.[0-9]*$)|(^[0-9]*\.[0-9]*[0-9]+[0-9]*$)|(^[0-9]*[0-9]+[0-9]*$)">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                      <div class="col-sm-10 col-sm-offset-2">
-                          
-                      </div>
-                  </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-                <button type="submit" class="btn btn-warning">Update</button>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-
 <script type="text/javascript">
     function confirm_delete($id){
         document.getElementById("href-delete").href='<?php echo base_url("transactions/delete/?id=")?>'+$id;
     }
     
-    function confirm_edit(id){
-
-        var date = document.getElementById("date_"+id).innerHTML;
-        var cb = document.getElementById("cb_"+id).innerHTML;
-        var cheque = document.getElementById("cheque_"+id).innerHTML;
-        var tr = document.getElementById("tr_"+id).innerHTML;
-        var especes = document.getElementById("especes_"+id).innerHTML;
-        var defences = document.getElementById("defences_"+id).innerHTML;        
-        
-        document.getElementById("id").value= id;
-        document.getElementById("new_date").value= date;
-        document.getElementById("new_defences").value= defences;
-        document.getElementById("new_cb").value= cb;
-        document.getElementById("new_cheque").value= cheque;
-        document.getElementById("new_tr").value= tr;
-        document.getElementById("new_especes").value= especes;
+    function confirm_edit($id){
+        var name = document.getElementById("product-"+$id+"-name").innerHTML;
+        //var cat_name = document.getElementById("product-"+$id+"-cat_name").innerHTML;
+        var description = document.getElementById("product-"+$id+"-description").innerHTML;
+        var price = document.getElementById("product-"+$id+"-price_span").innerHTML;
+        document.getElementById("selected_product").value= $id;
+        document.getElementById("new_name").value= name;
+        document.getElementById("new_description").value= description;
+        document.getElementById("new_price").value= price;
     }
 </script>
 
 <script>
     $( document ).ready(function() {
         $('#data_table').dataTable({
+//                "bSort": false
                 "aaSorting": []
+//                "order": [[ 0, "desc" ]] ,
+//                "aaSorting": [[ 2, 'desc' ]], 
+//                "cache": false
+//                "aaSorting" : [[0, "desc"]]
         });
     });  
     

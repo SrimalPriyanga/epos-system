@@ -63,7 +63,7 @@
                 <br class="clr">
             </div>
         </div>
-        <div class="copyright">	Best of India &copy; 2014.</div>
+        <div class="copyright">	Best of India &copy; <?php echo date("Y")?>.</div>
 
 <!-- Login Failed Modal Start-->
 <div class="modal fade" id="loginfailed">
